@@ -1,3 +1,14 @@
 fileFormatVersion: 2
 guid: 1f0396c6807c46a2be9a156427550261
-timeCreated: 1711339136
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - <Collider>k__BackingField: {instanceID: 0}
+  - meshRenderer: {instanceID: 0}
+  - virtualMaterial: {fileID: 2100000, guid: fc1415012516cfb439fe4717c8bc9fb6, type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

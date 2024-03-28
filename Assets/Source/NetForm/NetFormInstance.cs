@@ -8,9 +8,14 @@ namespace NetDive.NetForm
     {
         private NetFormComponent[] _components;
 
+        private NetFormType NetFormType { get; set; } = NetFormType.None;
         public NetFormSource Source { get; set; }
+        private NetFormConnection Connection { get; set; }
+
         private SphereCollider _collider;
-        
+
+        #region MonoBehaviour Callbacks
+
         private void OnEnable()
         {
             _collider = GetComponent<SphereCollider>();
@@ -26,20 +31,46 @@ namespace NetDive.NetForm
             NetFormSystem.Instance.Instances.Remove(_collider);
         }
 
-        public void NetFormConnect(NetFormType type)
+        #endregion
+        
+
+        public void EnableNetForm()
         {
-            foreach (var component in _components.Where(component => component.CanHandle(type)))
+            if (Source is null) return;
+            
+            NetFormType = Source.SourceType;
+            Connection.Show();
+            foreach (var component in _components.Where(component => component.CanHandle(Source.SourceType)))
             {
-                component.Connect(type);
+                component.Connect(Source.SourceType);
             }
         }
 
-        public void NetFormDisconnect(NetFormType type)
+        public void DisableNetForm()
         {
-            foreach (var component in _components.Where(component => component.CanHandle(type)))
+            Connection.Hide();
+            foreach (var component in _components.Where(component => component.CanHandle(NetFormType)))
             {
-                component.Disconnect(type);
+                component.Disconnect(NetFormType.None);
             }
+
+            NetFormType = NetFormType.None;
+        }
+
+        public void RemoveConnection()
+        {
+            NetFormSystem.Instance.ReleaseConnection(Connection);
+            Connection = null;
+            Source = null;
+        }
+
+        public void AddConnection(NetFormSource source)
+        {
+            if (source is null) return;
+            
+            Connection = NetFormSystem.Instance.GetConnection(this, source);
+            Connection.Range = source.Range;
+            Source = source;
         }
     }
 }

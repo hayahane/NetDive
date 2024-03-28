@@ -1,0 +1,68 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: adb9c12a8c6c949f7af83a3d238359d0, type: 3}
+  m_Name: vFolders Data
+  m_EditorClassIdentifier: 
+  folderDatas_byGuid:
+    keys:
+    - a7f6aaa959fe9634db882fa069b17ec6
+    - 980d710c830916f43af4de04105bd92e
+    - 709f11a7f3c4041caa4ef136ea32d874
+    - 2e96494da2a1f264f9ff793e927b8806
+    - 4ca6b136e886454419d121055fa6dd50
+    - 279b91d59b55edc4b84c2792e228580d
+    - 75f005e7dedd28240a0d92438d64a424
+    - d235fa8135130d947b81b541e50cf46e
+    - 7e9f24a40d2f94147a0b3e7b1774db18
+    - a0199fcc5c9df674a807f9dc35194279
+    - 6ea315d0fd7389c41b19996891e99ae3
+    - 03305be0fbe5a479d8d0e4799e4cd2ec
+    - 16e1672d19f341e41b75835845eccfb5
+    - 08f56627b90417244abb466ce1b4c68f
+    - 82e31c912d9abb44b890bb4ebb2be9db
+    - 170fd0445097f974d9832eb294c45ab5
+    - ce940c62ce6fdba46b8987bea69a7fcd
+    values:
+    - colorIndex: 8
+      iconNameOrGuid: ComputeShader Icon
+    - colorIndex: 0
+      iconNameOrGuid: AssemblyDefinitionAsset Icon
+    - colorIndex: 6
+      iconNameOrGuid: Settings Icon
+    - colorIndex: 0
+      iconNameOrGuid: SceneAsset Icon
+    - colorIndex: 0
+      iconNameOrGuid: Prefab Icon
+    - colorIndex: 2
+      iconNameOrGuid: AnimationClip Icon
+    - colorIndex: 0
+      iconNameOrGuid: PrefabModel Icon
+    - colorIndex: 0
+      iconNameOrGuid: Prefab Icon
+    - colorIndex: 0
+      iconNameOrGuid: Material Icon
+    - colorIndex: 0
+      iconNameOrGuid: AnimationClip Icon
+    - colorIndex: 0
+      iconNameOrGuid: SceneAsset Icon
+    - colorIndex: 4
+      iconNameOrGuid: 
+    - colorIndex: 0
+      iconNameOrGuid: Font Icon
+    - colorIndex: 10
+      iconNameOrGuid: Shader Icon
+    - colorIndex: 0
+      iconNameOrGuid: Material Icon
+    - colorIndex: 0
+      iconNameOrGuid: Texture Icon
+    - colorIndex: 0
+      iconNameOrGuid: Mesh Icon

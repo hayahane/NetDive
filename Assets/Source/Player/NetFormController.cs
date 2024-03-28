@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using NetDive.NetForm;
 using UnityEngine;
@@ -6,39 +7,106 @@ namespace NetDive.Player
 {
     public class NetFormController : MonoBehaviour
     {
-        [field: SerializeField] public float ScanRange { get; set; } = 10f;
-
-        public int ScannedCount { get; private set; }
+        private int _scannedCount;
         public Collider[] ScannedColliders { get; } = new Collider[32];
-        
-        public NetFormInstance LockedNetForm { get; private set; }
-        [field: SerializeField] public List<NetFormInstance> ScannedNetForms { get; private set; } = new();
 
-        public void ScanNetForm()
+        private NetFormSource _source;
+
+        public NetFormSource SourceInHand
         {
-            ScannedNetForms.Clear();
-            
-            ScannedCount =
-                Physics.OverlapSphereNonAlloc(transform.position, ScanRange,
-                    ScannedColliders, 1 << LayerMask.NameToLayer("NetForm"));
-
-            for (var i = 0; i < ScannedCount; i++)
+            get => _source;
+            private set
             {
-                if (NetFormSystem.Instance.Instances.TryGetValue(ScannedColliders[i],out var instance))
+                _source = value;
+                BulletTime(_source);
+                SourceChanged?.Invoke(_source);
+            }
+        }
+
+        public event Action<NetFormSource> SourceChanged;
+        public event Action<NetFormSource> TmpSourceChanged; 
+
+        private NetFormSource _tmpSource;
+
+        public NetFormSource TmpSource
+        {
+            get => _tmpSource;
+            set
+            {
+                _tmpSource = value;
+                TmpSourceChanged?.Invoke(_tmpSource);
+            }
+        }
+
+        private NetFormInstance _lockedInstance;
+        public List<NetFormInstance> ScannedNetForms { get; private set; } = new();
+
+        private void ScanNetForm()
+        {
+            if (SourceInHand is null) return;
+
+            ScannedNetForms.Clear();
+
+            _scannedCount =
+                Physics.OverlapSphereNonAlloc(SourceInHand.transform.position, SourceInHand.Range,
+                    ScannedColliders, NetFormSystem.Instance.Settings.netFormLayer);
+
+            for (var i = 0; i < _scannedCount; i++)
+            {
+                if (NetFormSystem.Instance.Instances.TryGetValue(ScannedColliders[i], out var instance))
                 {
                     ScannedNetForms.Add(instance);
                 }
             }
         }
 
-        public void LocketForm(int lockIndex)
-        {
-            LockedNetForm = ScannedNetForms[lockIndex];
-        }
-        
         private void FixedUpdate()
         {
+            if (SourceInHand is null) return;
+
             ScanNetForm();
+        }
+
+        public void SelectSource()
+        {
+            SourceInHand = TmpSource;
+        }
+
+        public void DeselectSource()
+        {
+            SourceInHand = null;
+        }
+
+        public void LockNetForm(int lockIndex)
+        {
+            _lockedInstance = ScannedNetForms[lockIndex];
+        }
+
+        public void ConnectInstance()
+        {
+            if (SourceInHand == null || _lockedInstance == null) return;
+            SourceInHand.AddInstance(_lockedInstance);
+        }
+
+        public void DisconnectInstance()
+        {
+            if (_lockedInstance == null) return;
+            if (_lockedInstance.Source == null) return;
+            _lockedInstance.Source.RemoveInstance(_lockedInstance);
+        }
+
+        private static void BulletTime(NetFormSource source)
+        {
+            if (source != null)
+            {
+                Time.timeScale = 0.2f;
+                //Time.fixedDeltaTime *= 0.2f;
+            }
+            else
+            {
+                Time.timeScale = 1f;
+                //Time.fixedDeltaTime /= 0.2f;
+            }
         }
     }
 }

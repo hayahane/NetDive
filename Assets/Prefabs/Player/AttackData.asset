@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5ea26b5a9bb41c4b0e8f708a3c97ac8, type: 3}
+  m_Name: AttackData
+  m_EditorClassIdentifier: 
+  <AttackAnimations>k__BackingField:
+  - clip:
+      _FadeDuration: 0.25
+      _Events:
+        _NormalizedTimes: []
+        _Callbacks: []
+        _Names: []
+      _Clip: {fileID: 7400000, guid: 167e70c6d41bd0e44af9dbe3ce287fda, type: 2}
+      _Speed: 1
+      _NormalizedStartTime: NaN
+    damage: 10
+    timeForInput: 0.8
+  - clip:
+      _FadeDuration: 0.25
+      _Events:
+        _NormalizedTimes: []
+        _Callbacks: []
+        _Names: []
+      _Clip: {fileID: 7400000, guid: 715011cf5233b834d9e8e773b5c35f4c, type: 2}
+      _Speed: 1
+      _NormalizedStartTime: NaN
+    damage: 15
+    timeForInput: 0.8

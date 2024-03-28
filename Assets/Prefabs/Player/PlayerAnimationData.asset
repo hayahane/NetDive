@@ -1,0 +1,58 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2b58bd9c0084fd69410aa4af7a1e65a, type: 3}
+  m_Name: PlayerAnimationData
+  m_EditorClassIdentifier: 
+  <Idle>k__BackingField:
+    _FadeDuration: 0.25
+    _Events:
+      _NormalizedTimes: []
+      _Callbacks: []
+      _Names: []
+    _Clip: {fileID: 7400000, guid: 318c8f0eba03d08498c0ff665b5728c8, type: 2}
+    _Speed: 1
+    _NormalizedStartTime: NaN
+  <Walk>k__BackingField:
+    _FadeDuration: 0.25
+    _Events:
+      _NormalizedTimes: []
+      _Callbacks: []
+      _Names: []
+    _Speed: 1
+    _Animations:
+    - {fileID: 7400000, guid: dce48dc6c701b494d9c4b903bf9a9530, type: 2}
+    - {fileID: 7400000, guid: 75cbcba3a3b427646af1fe3af5027274, type: 2}
+    _Speeds: []
+    _SynchronizeChildren: 
+    _Thresholds:
+    - 3
+    - 5
+    _DefaultParameter: 3
+    _ExtrapolateSpeed: 1
+  <JumpStart>k__BackingField:
+    _FadeDuration: 0.32083336
+    _Events:
+      _NormalizedTimes: []
+      _Callbacks: []
+      _Names: []
+    _Clip: {fileID: 7400000, guid: 0ddbaa4304e84a24993af31407fb6bf1, type: 2}
+    _Speed: 1
+    _NormalizedStartTime: NaN
+  <JumpLoop>k__BackingField:
+    _FadeDuration: 0.25
+    _Events:
+      _NormalizedTimes: []
+      _Callbacks: []
+      _Names: []
+    _Clip: {fileID: 7400000, guid: 56ce76083d1d9814e814dd947b4b16b3, type: 2}
+    _Speed: 1
+    _NormalizedStartTime: NaN

@@ -1,6 +1,6 @@
 using KinematicCharacterController;
+using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.Serialization;
 using UnityEngine.Splines;
 
 namespace NetDive.NetForm
@@ -26,12 +26,24 @@ namespace NetDive.NetForm
         EaseInOut
     }
 
+    public enum HitWallMode
+    {
+        Bounce,
+        Return
+    }
+
     public class NetFormMovement : NetFormComponent, IMoverController
     {
         [SerializeField] private bool initMoving = true;
         private bool _isMoving;
-        
-        [field: SerializeField] public bool GoBackWhenHitWall { get; set; }
+
+
+        private bool _hitObstacle;
+        private float _backTime;
+        private float _playDirection = 1;
+        [field: SerializeField] public HitWallMode HitWallMode { get; set; } = HitWallMode.Bounce;
+        [field: SerializeField] public float GoBackTime { get; set; } = 0.1f;
+        [field: SerializeField] public float BackTimeScale { get; set; } = 0.1f;
         [field: SerializeField] public LoopMode LoopMode { get; set; } = LoopMode.Once;
         [field: SerializeField] public EaseMode EaseMode { get; set; } = EaseMode.Linear;
         [field: SerializeField] public float Duration { get; set; }
@@ -59,6 +71,8 @@ namespace NetDive.NetForm
             RebuildSplinePath();
         }
 
+        #region NetFormComponent Implementation
+
         public override bool CanHandle(NetFormType type)
         {
             return type is NetFormType.Motion or NetFormType.Freeze;
@@ -73,6 +87,8 @@ namespace NetDive.NetForm
         {
             _isMoving = initMoving;
         }
+
+        #endregion
 
         private void RebuildSplinePath()
         {
@@ -132,8 +148,33 @@ namespace NetDive.NetForm
                 return;
             }
 
-            var t = CalculateNormalizedTime(deltaTime);
+            var dt = deltaTime * _playDirection;
+            if (_hitObstacle)
+            {
+                switch (HitWallMode)
+                {
+                    case HitWallMode.Bounce:
+                        _backTime -= deltaTime;
+                        if (_backTime <= 0)
+                        {
+                            _hitObstacle = false;
+                            _playDirection *= -1;
+                        }
+                        dt *= BackTimeScale;
+                        break;
+                }
+            }
+
+            var t = CalculateNormalizedTime(dt);
             var pos = spline.EvaluatePosition(_splinePath, t);
+            var motion = (Vector3)pos - mover.transform.position;
+            if (mover.Rigidbody.SweepTest(motion.normalized, out var hit, motion.magnitude) &&
+                !hit.collider.gameObject.CompareTag("Player"))
+            {
+                _hitObstacle = true;
+                _backTime = GoBackTime;
+                _playDirection *= -1;
+            }
 
             goalPosition = pos;
             goalRotation = Quaternion.identity;
