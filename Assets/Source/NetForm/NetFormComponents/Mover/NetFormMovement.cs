@@ -143,8 +143,8 @@ namespace NetDive.NetForm
         {
             if (!_isMoving)
             {
-                goalPosition = transform.position;
-                goalRotation = transform.rotation;
+                goalPosition = mover.transform.position;
+                goalRotation = mover.transform.rotation;
                 return;
             }
 

@@ -1,4 +1,3 @@
-using System;
 using NetDive.NetForm;
 using NetDive.Player;
 using UnityEngine;
@@ -26,6 +25,9 @@ namespace NetDive.UI
 
         [Header("Source Note")]
         [SerializeField] private CanvasGroup noteCanvasGroup;
+
+        [SerializeField] private GameObject inputNote;
+        [SerializeField] private GameObject netFormNote;
 
         private void Start()
         {
@@ -119,6 +121,20 @@ namespace NetDive.UI
         {
             if (_current == null) return;
             _current.StartDisconnect();
+        }
+
+        public void ChangeInputPrompt(NetFormSource source)
+        {
+            if (source == null)
+            {
+                inputNote.SetActive(true);
+                netFormNote.SetActive(false);
+            }
+            else
+            {
+                inputNote.SetActive(false);
+                netFormNote.SetActive(true);
+            }
         }
     }
 }

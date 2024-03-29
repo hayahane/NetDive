@@ -27,6 +27,7 @@ namespace NetDive.Player
             Cursor.lockState = CursorLockMode.Locked;
 
             NetFormController.SourceChanged += TpCam.ChangeFocus;
+            NetFormController.SourceChanged += NetFormUIManager.ChangeInputPrompt;
 
             PlayerInput.actions["ReleaseCursor"].started += UnlockCursor;
 

@@ -11150,7 +11150,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9c396ba49e448a891c061f83e5a58e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initMoving: 1
+  initMoving: 0
   <HitWallMode>k__BackingField: 1
   <GoBackTime>k__BackingField: 1
   <BackTimeScale>k__BackingField: 0.1
@@ -11464,11 +11464,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 205596685277230999, guid: eca155bde34b6d448938f67dd22b2f15,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 767695265205291394, guid: eca155bde34b6d448938f67dd22b2f15,
         type: 3}
       propertyPath: controller
@@ -11479,11 +11474,6 @@ PrefabInstance:
       propertyPath: viewCamera
       value: 
       objectReference: {fileID: 330585545}
-    - target: {fileID: 1128829777965463670, guid: eca155bde34b6d448938f67dd22b2f15,
-        type: 3}
-      propertyPath: m_Alpha
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1442613914279517571, guid: eca155bde34b6d448938f67dd22b2f15,
         type: 3}
       propertyPath: m_Name
@@ -11594,14 +11584,8 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 330585545}
-    - target: {fileID: 6331980259418073928, guid: eca155bde34b6d448938f67dd22b2f15,
-        type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 100
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects:
-    - {fileID: 1452328939689060535, guid: eca155bde34b6d448938f67dd22b2f15, type: 3}
+    m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eca155bde34b6d448938f67dd22b2f15, type: 3}
