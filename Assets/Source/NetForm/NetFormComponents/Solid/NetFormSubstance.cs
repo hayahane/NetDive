@@ -8,13 +8,15 @@ namespace NetDive.NetForm
         [SerializeField] private bool initSubstance = true;
         private bool _isSubstance;
         [field: SerializeField] public Collider Collider { get; set; }
-        [SerializeField] private MeshRenderer meshRenderer;
+        [SerializeField] private Renderer meshRenderer;
         [SerializeField] private Material virtualMaterial;
         private Material _initMaterial;
+        private Rigidbody _rb;
 
         private void OnEnable()
         {
             _isSubstance = initSubstance;
+            Collider.enabled = _isSubstance;
             if (meshRenderer == null) return;
             _initMaterial = meshRenderer.material;
             if (!_isSubstance)

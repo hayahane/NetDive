@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using DG.Tweening;
 using NetDive.NetForm;
 using UnityEngine;
 
@@ -7,6 +8,7 @@ namespace NetDive.Player
 {
     public class NetFormController : MonoBehaviour
     {
+        [SerializeField] private Material scanMaterial;
         private int _scannedCount;
         public Collider[] ScannedColliders { get; } = new Collider[32];
 
@@ -24,7 +26,7 @@ namespace NetDive.Player
         }
 
         public event Action<NetFormSource> SourceChanged;
-        public event Action<NetFormSource> TmpSourceChanged; 
+        public event Action<NetFormSource> TmpSourceChanged;
 
         private NetFormSource _tmpSource;
 
@@ -39,6 +41,9 @@ namespace NetDive.Player
         }
 
         private NetFormInstance _lockedInstance;
+        private static readonly int ScanEnabled = Shader.PropertyToID("_ScanEnabled");
+        private static readonly int ScanOrigin = Shader.PropertyToID("_ScanOrigin");
+        private static readonly int ScanRange = Shader.PropertyToID("_ScanRange");
         public List<NetFormInstance> ScannedNetForms { get; private set; } = new();
 
         private void ScanNetForm()
@@ -70,11 +75,18 @@ namespace NetDive.Player
         public void SelectSource()
         {
             SourceInHand = TmpSource;
+            if (SourceInHand == null) return;
+            scanMaterial.SetFloat(ScanEnabled, 1f);
+            scanMaterial.SetVector(ScanOrigin, SourceInHand.transform.position);
+            scanMaterial.DOFloat(SourceInHand.Range, ScanRange, 0.5f).SetUpdate(UpdateType.Normal, true);
         }
 
         public void DeselectSource()
         {
             SourceInHand = null;
+            scanMaterial.SetFloat(ScanEnabled, 0);
+            scanMaterial.SetFloat(ScanRange, 0);
+            DOTween.Kill(scanMaterial);
         }
 
         public void LockNetForm(int lockIndex)
@@ -85,6 +97,8 @@ namespace NetDive.Player
         public void ConnectInstance()
         {
             if (SourceInHand == null || _lockedInstance == null) return;
+
+            if (_lockedInstance.Source != null) _lockedInstance.Source.RemoveInstance(_lockedInstance);
             SourceInHand.AddInstance(_lockedInstance);
         }
 

@@ -50,6 +50,7 @@ namespace NetDive.NetForm
         private float _elapsedTime;
 
         [SerializeField] private SplineContainer spline;
+        private Collider _col;
 
         public SplineContainer Spline
         {
@@ -68,6 +69,7 @@ namespace NetDive.NetForm
         {
             _isMoving = initMoving;
             mover.MoverController = this;
+            _col = mover.GetComponent<Collider>();
             RebuildSplinePath();
         }
 
@@ -75,12 +77,12 @@ namespace NetDive.NetForm
 
         public override bool CanHandle(NetFormType type)
         {
-            return type is NetFormType.Motion or NetFormType.Freeze;
+            return type is NetFormType.Dynamic or NetFormType.Static;
         }
 
         public override void Connect(NetFormType type)
         {
-            _isMoving = type == NetFormType.Motion;
+            _isMoving = type == NetFormType.Dynamic;
         }
 
         public override void Disconnect(NetFormType type)
@@ -168,7 +170,7 @@ namespace NetDive.NetForm
             var t = CalculateNormalizedTime(dt);
             var pos = spline.EvaluatePosition(_splinePath, t);
             var motion = (Vector3)pos - mover.transform.position;
-            if (mover.Rigidbody.SweepTest(motion.normalized, out var hit, motion.magnitude) &&
+            if (_col.enabled && mover.Rigidbody.SweepTest(motion.normalized, out var hit, motion.magnitude, QueryTriggerInteraction.Ignore) &&
                 !hit.collider.gameObject.CompareTag("Player"))
             {
                 _hitObstacle = true;

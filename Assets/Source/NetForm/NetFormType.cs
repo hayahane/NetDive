@@ -4,6 +4,6 @@ namespace NetDive.NetForm
     {
         None = -1,
         Substance, Virtual,
-        Motion, Freeze
+        Dynamic, Static
     }
 }

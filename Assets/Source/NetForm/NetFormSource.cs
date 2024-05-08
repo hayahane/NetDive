@@ -9,8 +9,7 @@ namespace NetDive.NetForm
     public enum SourceMode
     {
         Constant,
-        Blink,
-        Shutdown
+        Blink
     }
 
     public class NetFormSource : MonoBehaviour
@@ -33,6 +32,7 @@ namespace NetDive.NetForm
         [field: SerializeField] public float OperatingTime { get; private set; } = 5f;
         private float _elapsedTime;
         private bool _isOperating;
+        private SpriteRenderer _spriteRenderer;
 
         private static readonly int Emission = Shader.PropertyToID("_EmissionColor");
         private static readonly int EmissionMap = Shader.PropertyToID("_EmissionMap");
@@ -49,10 +49,10 @@ namespace NetDive.NetForm
         {
             var area = GetComponent<Collider>();
             area.isTrigger = true;
-            var spriteRenderer = GetComponent<SpriteRenderer>();
-            spriteRenderer.sprite = NetFormSystem.Instance.GetIcon(SourceType);
-            spriteRenderer.material.SetColor(Emission, NetFormSystem.Instance.GetColor(SourceType));
-            spriteRenderer.material.SetTexture(EmissionMap, spriteRenderer.sprite.texture);
+            _spriteRenderer = GetComponent<SpriteRenderer>();
+            _spriteRenderer.sprite = NetFormSystem.Instance.GetIcon(SourceType);
+            _spriteRenderer.material.SetColor(Emission, NetFormSystem.Instance.GetColor(SourceType));
+            _spriteRenderer.material.SetTexture(EmissionMap, _spriteRenderer.sprite.texture);
         }
 
         private void OnDisable()
@@ -118,6 +118,8 @@ namespace NetDive.NetForm
                     if (_elapsedTime < OperatingTime && !_isOperating)
                     {
                         _isOperating = true;
+                        _spriteRenderer.enabled = true;
+                        
                         foreach (var instance in Instances)
                         {
                             instance.EnableNetForm();
@@ -129,12 +131,12 @@ namespace NetDive.NetForm
                     if (_elapsedTime >= OperatingTime && _isOperating)
                     {
                         _isOperating = false;
+                        _spriteRenderer.enabled = false;
                         foreach (var instance in Instances)
                         {
                             instance.DisableNetForm();
                         }
                     }
-
                     break;
             }
         }

@@ -82,10 +82,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Range>k__BackingField: 10
   <SourceType>k__BackingField: 1
-  <Instances>k__BackingField:
-  - {fileID: 0}
-  - {fileID: 0}
-  <SourceMode>k__BackingField: 1
+  <Instances>k__BackingField: []
+  <SourceMode>k__BackingField: 0
   <BlinkInterval>k__BackingField: 2
   <OperatingTime>k__BackingField: 5
 --- !u!65 &6002014848402110469

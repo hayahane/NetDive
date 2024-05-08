@@ -1,4 +1,5 @@
 using KinematicCharacterController;
+using NetDive.Attackable;
 using NetDive.Utilities.StateMachine;
 using NetDive.Player.Animation;
 using NetDive.Player.States;
@@ -27,6 +28,7 @@ namespace NetDive.Player
         [field: SerializeField] public AttackData AttackData { get; private set; }
         [field: SerializeField] public Transform Armature { get; private set; }
         [field: SerializeField] public AnimationController AnimationController { get; private set; }
+        [field: SerializeField] public AttackCollider AttackCollider { get; private set; }
 
         public bool IsRunning { get; set; }
         public Vector3 MoveDirection { get; set; }
@@ -48,6 +50,7 @@ namespace NetDive.Player
         {
             Motor = GetComponent<KinematicCharacterMotor>();
             Motor.CharacterController = this;
+            AttackCollider.Player = Armature.transform;
         }
 
         private void Update()

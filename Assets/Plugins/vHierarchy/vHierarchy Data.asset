@@ -15,6 +15,7 @@ MonoBehaviour:
   sceneDatas_byGuid:
     keys:
     - 99c9720ab356a0642a771bea13969a05
+    - 989efabfdd668274fb55eaa6889cecac
     values:
     - goDatas_byGlobalId:
         keys:
@@ -75,6 +76,66 @@ MonoBehaviour:
           iconNameOrGuid: Favorite
         - colorIndex: 0
           iconNameOrGuid: Rigidbody Icon
+        - colorIndex: 0
+          iconNameOrGuid: Folder Icon
+        - colorIndex: 0
+          iconNameOrGuid: Folder Icon
+    - goDatas_byGlobalId:
+        keys:
+        - globalObjectIdString: GlobalObjectId_V1-2-989efabfdd668274fb55eaa6889cecac-544410093-0
+        - globalObjectIdString: GlobalObjectId_V1-2-989efabfdd668274fb55eaa6889cecac-500961311-0
+        - globalObjectIdString: GlobalObjectId_V1-2-989efabfdd668274fb55eaa6889cecac-846189964-0
+        - globalObjectIdString: GlobalObjectId_V1-2-989efabfdd668274fb55eaa6889cecac-5038508530206144302-8591405624944306778
+        - globalObjectIdString: GlobalObjectId_V1-2-989efabfdd668274fb55eaa6889cecac-1085197747-0
+        - globalObjectIdString: GlobalObjectId_V1-2-989efabfdd668274fb55eaa6889cecac-1534020538-0
+        - globalObjectIdString: GlobalObjectId_V1-2-989efabfdd668274fb55eaa6889cecac-403454437-0
+        - globalObjectIdString: GlobalObjectId_V1-2-989efabfdd668274fb55eaa6889cecac-257601513-0
+        - globalObjectIdString: GlobalObjectId_V1-2-989efabfdd668274fb55eaa6889cecac-55580116-0
+        - globalObjectIdString: GlobalObjectId_V1-2-989efabfdd668274fb55eaa6889cecac-2030212766-0
+        - globalObjectIdString: GlobalObjectId_V1-2-989efabfdd668274fb55eaa6889cecac-1188426074-0
+        - globalObjectIdString: GlobalObjectId_V1-2-989efabfdd668274fb55eaa6889cecac-1884828079-0
+        - globalObjectIdString: GlobalObjectId_V1-2-989efabfdd668274fb55eaa6889cecac-868351921-0
+        - globalObjectIdString: GlobalObjectId_V1-2-989efabfdd668274fb55eaa6889cecac-2037481678-0
+        - globalObjectIdString: GlobalObjectId_V1-2-989efabfdd668274fb55eaa6889cecac-928688052-0
+        - globalObjectIdString: GlobalObjectId_V1-2-989efabfdd668274fb55eaa6889cecac-220686906-0
+        - globalObjectIdString: GlobalObjectId_V1-2-989efabfdd668274fb55eaa6889cecac-122407553-0
+        - globalObjectIdString: GlobalObjectId_V1-2-989efabfdd668274fb55eaa6889cecac-667813436-0
+        - globalObjectIdString: GlobalObjectId_V1-2-989efabfdd668274fb55eaa6889cecac-432608720-0
+        values:
+        - colorIndex: 0
+          iconNameOrGuid: Light Icon
+        - colorIndex: 0
+          iconNameOrGuid: Folder Icon
+        - colorIndex: 0
+          iconNameOrGuid: Camera Icon
+        - colorIndex: 0
+          iconNameOrGuid: AvatarMask On Icon
+        - colorIndex: 0
+          iconNameOrGuid: Folder Icon
+        - colorIndex: 0
+          iconNameOrGuid: Folder Icon
+        - colorIndex: 0
+          iconNameOrGuid: Folder Icon
+        - colorIndex: 0
+          iconNameOrGuid: Folder Icon
+        - colorIndex: 0
+          iconNameOrGuid: Light Icon
+        - colorIndex: 0
+          iconNameOrGuid: Folder Icon
+        - colorIndex: 0
+          iconNameOrGuid: Folder Icon
+        - colorIndex: 0
+          iconNameOrGuid: Rigidbody Icon
+        - colorIndex: 0
+          iconNameOrGuid: Folder Icon
+        - colorIndex: 0
+          iconNameOrGuid: Folder Icon
+        - colorIndex: 0
+          iconNameOrGuid: Folder Icon
+        - colorIndex: 0
+          iconNameOrGuid: Folder Icon
+        - colorIndex: 0
+          iconNameOrGuid: Folder Icon
         - colorIndex: 0
           iconNameOrGuid: Folder Icon
         - colorIndex: 0

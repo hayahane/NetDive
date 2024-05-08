@@ -26,7 +26,6 @@ MonoBehaviour:
     - a0199fcc5c9df674a807f9dc35194279
     - 6ea315d0fd7389c41b19996891e99ae3
     - 03305be0fbe5a479d8d0e4799e4cd2ec
-    - 16e1672d19f341e41b75835845eccfb5
     - 08f56627b90417244abb466ce1b4c68f
     - 82e31c912d9abb44b890bb4ebb2be9db
     - 170fd0445097f974d9832eb294c45ab5
@@ -56,8 +55,6 @@ MonoBehaviour:
       iconNameOrGuid: SceneAsset Icon
     - colorIndex: 4
       iconNameOrGuid: 
-    - colorIndex: 0
-      iconNameOrGuid: Font Icon
     - colorIndex: 10
       iconNameOrGuid: Shader Icon
     - colorIndex: 0

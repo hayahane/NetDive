@@ -200,7 +200,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 1
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!114 &2343117890394621077
 MonoBehaviour:
@@ -262,6 +262,7 @@ MonoBehaviour:
     type: 2}
   <Armature>k__BackingField: {fileID: 8285240417147528751}
   <AnimationController>k__BackingField: {fileID: 32728425772407455}
+  <AttackCollider>k__BackingField: {fileID: 7344194528697727219}
 --- !u!114 &6095243485229492958
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -387,10 +388,10 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 4094510836019058979}
   - {fileID: 3386635155337814198}
   - {fileID: 1233819280237707072}
   - {fileID: 958017974655235188}
+  - {fileID: 4094510836019058979}
   m_Father: {fileID: 8285240417147528751}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &413435503799036034
@@ -1170,7 +1171,7 @@ PrefabInstance:
     - target: {fileID: 1963890161461726081, guid: 615a0cac4abdb0c408225d04bc678092,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.608
+      value: -0.60800004
       objectReference: {fileID: 0}
     - target: {fileID: 1963890161461726081, guid: 615a0cac4abdb0c408225d04bc678092,
         type: 3}
@@ -1180,7 +1181,7 @@ PrefabInstance:
     - target: {fileID: 1963890161461726081, guid: 615a0cac4abdb0c408225d04bc678092,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.1
+      value: -0.100000024
       objectReference: {fileID: 0}
     - target: {fileID: 1963890161461726081, guid: 615a0cac4abdb0c408225d04bc678092,
         type: 3}
@@ -1222,6 +1223,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: BatSword
       objectReference: {fileID: 0}
+    - target: {fileID: 4104462013172120219, guid: 615a0cac4abdb0c408225d04bc678092,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1233,3 +1239,15 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2563599712974852770}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &7344194528697727219 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5077929904135072337, guid: 615a0cac4abdb0c408225d04bc678092,
+    type: 3}
+  m_PrefabInstance: {fileID: 2563599712974852770}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0fcb7fdd680244f58de8d778e22567ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

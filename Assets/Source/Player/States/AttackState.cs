@@ -39,6 +39,7 @@ namespace NetDive.Player.States
             _isNextAvailable = false;
             _currentStage++;
             characterController.AnimationController.Attack(_data.AttackAnimations[_currentStage].clip);
+            characterController.AttackCollider.Damage = _data.AttackAnimations[_currentStage].damage;
             _timeSinceEnter = 0;
             characterController.IsAttacking = false;
             _currentInputTime = _data.AttackAnimations[_currentStage].timeForInput;
